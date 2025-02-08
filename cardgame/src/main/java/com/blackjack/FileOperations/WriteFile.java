@@ -12,18 +12,18 @@ import java.nio.file.StandardCopyOption;
 
 public class WriteFile {
 
-    // writes the passed array to the database.txt file
+    // Writes the passed array to the database.txt file
     public static void write(String[] information) {
         try {
             FileWriter writer = new FileWriter("database.txt", true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
 
-            // joins the array that was passed in to the method with a , and space
+            // Joins the array that was passed in to the method with a , and space
             String info = String.join(", ", information);
 
-            // write the joined string into the database.txt file
+            // Write the joined string into the database.txt file
             bufferedWriter.write(info + ", " + 100);
-            // create a new line
+            // Create a new line
             bufferedWriter.newLine();
             
             bufferedWriter.close();
@@ -32,12 +32,14 @@ public class WriteFile {
         }
     }
 
-    // sets the balance of the passed username to the passed balance
-    // goes through the file find the username that matches the passed username
-    // changes the balance for that username
-    // makes it into a new line
-    // rewrites the entire file into a new temporary file to have the old values
-    // changes the temp file name to the database.txt so no confusion
+    /* 
+    - Sets the balance of the passed username to the passed balance
+    - Goes through the file find the username that matches the passed username
+    - Changes the balance for that username
+    - Makes it into a new line
+    - Rewrites the entire file into a new temporary file to have the old values
+    - Changes the temp file name to the database.txt so no confusion
+    */
     public static void setBalance(String username, int newBalance) {
         try {
             File tempFile = new File("temp.txt");
