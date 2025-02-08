@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="main" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loginassignment.Blackjack.Game">
+   <children>
+      <ImageView fitHeight="536.0" fitWidth="960.0">
+         <image>
+            <Image url="@../Images/background.png" />
+         </image>
+      </ImageView>
+      <VBox fx:id="secondDecision" alignment="TOP_RIGHT" layoutX="778.0" layoutY="359.0" prefHeight="146.0" prefWidth="168.0" spacing="10.0">
+         <children>
+            <ImageView fx:id="hit" onMousePressed="#playerHit">
+               <image>
+                  <Image url="@../Images/Buttons/hit.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="stand" onMousePressed="#playerStand">
+               <image>
+                  <Image url="@../Images/Buttons/stand.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="doubleBet" onMousePressed="#playerDouble">
+               <image>
+                  <Image url="@../Images/Buttons/double.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <VBox fx:id="firstDecision" alignment="TOP_RIGHT" layoutX="778.0" layoutY="398.0" prefHeight="107.0" prefWidth="168.0" spacing="10.0">
+         <children>
+            <ImageView fx:id="deal" onMousePressed="#startGame">
+               <image>
+                  <Image url="@../Images/Buttons/deal.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="undo" onMousePressed="#undoBet">
+               <image>
+                  <Image url="@../Images/Buttons/undo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <VBox fx:id="thirdDecision" layoutX="779.0" layoutY="341.0" prefHeight="170.0" prefWidth="166.0" spacing="10.0">
+         <children>
+            <ImageView fx:id="rebetDeal" onMousePressed="#rebetDealClick">
+               <image>
+                  <Image url="@../Images/Buttons/rebet-deal.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rebet2xDeal" onMousePressed="#rebet2xDealClick">
+               <image>
+                  <Image url="@../Images/Buttons/rebet2x-deal.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rebet" onMousePressed="#rebetClick">
+               <image>
+                  <Image url="@../Images/Buttons/rebet.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <HBox fx:id="betMenu" layoutX="258.0" layoutY="463.0" prefHeight="50.0" prefWidth="436.0" spacing="15.0">
+         <children>
+            <ImageView fx:id="one" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#add1">
+               <image>
+                  <Image url="@../Images/Chips/1chip.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="five" fitHeight="50.0" fitWidth="50.0" onMousePressed="#add5">
+               <image>
+                  <Image url="@../Images/Chips/5chip.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ten" fitHeight="50.0" fitWidth="50.0" onMousePressed="#add10">
+               <image>
+                  <Image url="@../Images/Chips/10chip.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="twentyFive" fitHeight="50.0" fitWidth="50.0" onMousePressed="#add25">
+               <image>
+                  <Image url="@../Images/Chips/25chip.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="oneHundred" fitHeight="50.0" fitWidth="50.0" onMousePressed="#add100">
+               <image>
+                  <Image url="@../Images/Chips/100chip.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fiveHundred" fitHeight="50.0" fitWidth="50.0" onMousePressed="#add500">
+               <image>
+                  <Image url="@../Images/Chips/500chip.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="oneThousand" fitHeight="50.0" fitWidth="50.0" onMousePressed="#add1000">
+               <image>
+                  <Image url="@../Images/Chips/1000chip.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Label fx:id="playerBalance" layoutX="14.0" layoutY="477.0" prefHeight="35.0" prefWidth="228.0" text="Balance: 100000000" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerBet" layoutX="14.0" layoutY="445.0" prefHeight="35.0" prefWidth="127.0" text="Bet:  " textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="playerCardOne" fitHeight="99.0" fitWidth="94.0" layoutX="436.0" layoutY="280.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playerCardTwo" fitHeight="99.0" fitWidth="94.0" layoutX="457.0" layoutY="262.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playerCardThree" fitHeight="99.0" fitWidth="94.0" layoutX="483.0" layoutY="242.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playerCardFour" fitHeight="99.0" fitWidth="94.0" layoutX="504.0" layoutY="219.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playerCardFive" fitHeight="99.0" fitWidth="94.0" layoutX="523.0" layoutY="199.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playerCardSix" fitHeight="99.0" fitWidth="94.0" layoutX="544.0" layoutY="181.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playerCardSeven" fitHeight="99.0" fitWidth="94.0" layoutX="570.0" layoutY="163.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playerCardEight" fitHeight="99.0" fitWidth="94.0" layoutX="591.0" layoutY="143.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playerCardNine" fitHeight="99.0" fitWidth="94.0" layoutX="611.0" layoutY="120.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playerCardTen" fitHeight="99.0" fitWidth="94.0" layoutX="629.0" layoutY="100.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dealerCardOne" fitHeight="99.0" fitWidth="94.0" layoutX="433.0" layoutY="51.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dealerCardTwo" fitHeight="99.0" fitWidth="94.0" layoutX="410.0" layoutY="65.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dealerCardThree" fitHeight="99.0" fitWidth="94.0" layoutX="386.0" layoutY="82.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dealerCardFour" fitHeight="99.0" fitWidth="94.0" layoutX="363.0" layoutY="101.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dealerCardFive" fitHeight="99.0" fitWidth="94.0" layoutX="339.0" layoutY="120.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dealerCardSix" fitHeight="99.0" fitWidth="94.0" layoutX="316.0" layoutY="143.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dealerCardSeven" fitHeight="99.0" fitWidth="94.0" layoutX="292.0" layoutY="163.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dealerCardEight" fitHeight="99.0" fitWidth="94.0" layoutX="269.0" layoutY="181.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dealerCardNine" fitHeight="99.0" fitWidth="94.0" layoutX="245.0" layoutY="199.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dealerCardTen" fitHeight="99.0" fitWidth="94.0" layoutX="222.0" layoutY="219.0">
+         <image>
+            <Image url="@../Images/Cards/backside.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="playerHand" alignment="TOP_RIGHT" layoutX="371.0" layoutY="316.0" prefHeight="27.0" prefWidth="50.0" text="21/21" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="dealerHand" alignment="TOP_LEFT" layoutX="534.0" layoutY="87.0" prefHeight="27.0" prefWidth="50.0" text="21/21" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="dealerStatus" alignment="TOP_LEFT" layoutX="534.0" layoutY="65.0" prefHeight="27.0" prefWidth="50.0" text="Bust" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerStatus" alignment="TOP_RIGHT" layoutX="371.0" layoutY="292.0" prefHeight="27.0" prefWidth="50.0" text="Bust" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="winnings" alignment="CENTER" layoutX="188.0" layoutY="149.0" prefHeight="163.0" prefWidth="591.0" text="You Won 10000" textFill="#2dff15">
+         <font>
+            <Font name="System Bold Italic" size="48.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
