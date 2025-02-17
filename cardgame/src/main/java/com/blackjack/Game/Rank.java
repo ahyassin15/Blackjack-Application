@@ -1,6 +1,6 @@
 package main.java.com.blackjack.Game;
 
-// Enumeration representing the values of playing cards
+//Enum for the values of cards
 public enum Rank {
     ACE(1, 11),
     TWO(2),
