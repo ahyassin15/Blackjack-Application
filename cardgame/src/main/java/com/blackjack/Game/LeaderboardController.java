@@ -66,7 +66,7 @@ public class LeaderboardController {
     int n = entryList.size();
     boolean swapped;
 
-    // Perform bubble sort algorithm that we did in class
+    // Perform bubble sort algorithm
     for (int i = 0; i < n - 1; i++) {
       swapped = false;
       for (int j = 0; j < n - i - 1; j++) {
